@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Suspense, useEffect } from "react";
-import BaseStats from "@/app/components/pokemons/base-stats";
-import TypeIcon from "@/app/components/pokemons/types-icon";
+import TypeIcon from "@/components/pokemons/types-icon";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import BattleDetails from "@/components/pokemons/battle";
+import CatchingDetails from "@/components/pokemons/catching";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -76,21 +77,28 @@ export default async function Pokemon({
         </div>
       </div>
 
-      <div className="flex -translate-y-[15rem] gap-5 px-32 py-20 max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8">
-        <div className="flex-1">
-          <div className="relative flex justify-between">
-            <h3 className="text-xl font-bold">Base Stats</h3>
-            <p className="absolute right-0 font-title text-6xl font-bold">
-              {poke.stats.reduce(
-                (acc: number, stat: { base_stat: number }) =>
-                  acc + stat.base_stat,
-                0,
-              )}
-            </p>
+      <div className="-translate-y-[15rem] px-32 py-20 max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8 max-sm:-translate-y-[22rem]">
+        <Tabs defaultValue="battle" className="xl:hidden">
+          <TabsList className="mb-8 grid w-full grid-cols-2">
+            <TabsTrigger value="battle">Battle</TabsTrigger>
+            <TabsTrigger value="catching">Catching</TabsTrigger>
+          </TabsList>
+          <TabsContent value="battle">
+            <BattleDetails poke={poke} />
+          </TabsContent>
+          <TabsContent value="catching">
+            <CatchingDetails poke={poke} />
+          </TabsContent>
+        </Tabs>
+
+        <div className="flex flex-row gap-6 max-xl:hidden">
+          <div className="flex-1">
+            <BattleDetails poke={poke} />
           </div>
-          <BaseStats poke={poke} />
+          <div className="flex-1">
+            <CatchingDetails poke={poke} />
+          </div>
         </div>
-        <div className="flex-1"> </div>
       </div>
     </div>
   );
