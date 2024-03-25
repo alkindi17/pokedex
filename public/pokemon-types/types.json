@@ -1,0 +1,92 @@
+{
+  "bug": {
+    "title": "Bug",
+    "color": "#92bc2c",
+    "icon": "bug.svg"
+  },
+  "dark": {
+    "title": "Dark",
+    "color": "#595761",
+    "icon": "dark.svg"
+  },
+  "dragon": {
+    "title": "Dragon",
+    "color": "#0c69c8",
+    "icon": "dragon.svg"
+  },
+  "electric": {
+    "title": "Electric",
+    "color": "#f2d94e",
+    "icon": "electric.svg"
+  },
+  "fairy": {
+    "title": "Fairy",
+    "color": "#ee90e6",
+    "icon": "fairy.svg"
+  },
+  "fighting": {
+    "title": "Fighting",
+    "color": "#d3425f",
+    "icon": "fighting.svg"
+  },
+  "fire": {
+    "title": "Fire",
+    "color": "#fba54c",
+    "icon": "fire.svg"
+  },
+  "flying": {
+    "title": "Flying",
+    "color": "#a1bbec",
+    "icon": "flying.svg"
+  },
+  "ghost": {
+    "title": "Ghost",
+    "color": "#5f6dbc",
+    "icon": "ghost.svg"
+  },
+  "grass": {
+    "title": "Grass",
+    "color": "#5fbd58",
+    "icon": "grass.svg"
+  },
+  "ground": {
+    "title": "Ground",
+    "color": "#da7c4d",
+    "icon": "ground.svg"
+  },
+  "ice": {
+    "title": "Ice",
+    "color": "#75d0c1",
+    "icon": "ice.svg"
+  },
+  "normal": {
+    "title": "Normal",
+    "color": "#a0a29f",
+    "icon": "normal.svg"
+  },
+  "poison": {
+    "title": "Poison",
+    "color": "#b763cf",
+    "icon": "poison.svg"
+  },
+  "psychic": {
+    "title": "Psychic",
+    "color": "#fa8581",
+    "icon": "psychic.svg"
+  },
+  "rock": {
+    "title": "Rock",
+    "color": "#c9bb8a",
+    "icon": "rock.svg"
+  },
+  "steel": {
+    "title": "Steel",
+    "color": "#5695a3",
+    "icon": "steel.svg"
+  },
+  "water": {
+    "title": "Water",
+    "color": "#539ddf",
+    "icon": "water.svg"
+  }
+}
