@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Pokemon() {
   return (
-    <div className="flex h-full flex-col justify-center text-center align-middle">
+    <div className="flex h-full min-h-screen flex-col justify-center bg-[#f5f5f5] text-center align-middle">
       <h1>Pokemon</h1>
-      <Link href="/pokemons/pikachu">Hello Pokemon</Link>
+      <Link href="/pokemons/pikachu">Pikachu</Link>
     </div>
   );
 }

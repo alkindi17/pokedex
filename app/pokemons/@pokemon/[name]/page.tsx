@@ -42,12 +42,12 @@ export default async function Pokemon({
   }
 
   return (
-    <div className="bg-[#f5f5f5]">
+    <>
       <div className="flex h-fit flex-col overflow-hidden max-md:w-screen">
         <div
           className={`h-[40rem] -translate-y-[19rem] -skew-y-[10deg] bg-gradient-to-r from-[transparent] from-25% max-sm:h-[50rem] max-sm:-translate-y-[25rem] max-sm:-skew-y-[10deg] to-${typeName} px-32 py-20 max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8`}
         >
-          <div className="relative flex h-[22rem] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
+          <div className="relative mx-auto flex h-[22rem] max-w-[1280px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col gap-1">
                 {poke.types.map((types: { type: { name: string } }) => (
@@ -77,7 +77,7 @@ export default async function Pokemon({
         </div>
       </div>
 
-      <div className="-translate-y-[15rem] px-32 py-20 max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8 max-sm:-translate-y-[22rem]">
+      <div className="mx-auto max-w-[1280px] -translate-y-[15rem] px-32 py-20 max-lg:max-w-[640px] max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8 max-sm:-translate-y-[22rem]">
         <Tabs defaultValue="battle" className="xl:hidden">
           <TabsList className="mb-8 grid w-full grid-cols-2">
             <TabsTrigger value="battle">Battle</TabsTrigger>
@@ -100,6 +100,6 @@ export default async function Pokemon({
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

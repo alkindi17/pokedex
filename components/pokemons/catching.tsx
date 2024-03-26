@@ -17,6 +17,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMars, faVenus } from "@fortawesome/free-solid-svg-icons";
+
 export default async function CatchingDetails({ poke }: { poke: any }) {
   const species = await fetch(poke.species.url).then((res) => res.json());
 
@@ -97,14 +100,15 @@ export default async function CatchingDetails({ poke }: { poke: any }) {
               {species.gender_rate && (
                 <TableRow>
                   <TableCell className="w-32 font-bold">Gender Ratio</TableCell>
-                  <TableCell>
-                    <span className="text-blue-500">
-                      {((8 - species.gender_rate) / 8) * 100}% Male
-                    </span>
-                    {", "}
-                    <span className="text-pink-400">
-                      {(species.gender_rate / 8) * 100}% Female
-                    </span>
+                  <TableCell className="flex gap-5">
+                    <div className="flex items-center gap-1 text-blue-500">
+                      <FontAwesomeIcon icon={faMars} className="inline w-4" />
+                      <span>{((8 - species.gender_rate) / 8) * 100}% </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-pink-400">
+                      <FontAwesomeIcon icon={faVenus} className="inline w-4" />
+                      <span>{(species.gender_rate / 8) * 100}%</span>
+                    </div>
                   </TableCell>
                 </TableRow>
               )}
