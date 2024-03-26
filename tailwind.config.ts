@@ -74,7 +74,7 @@ const config = {
         ice: "#75d0c1", // ice
         normal: "#a0a29f", // normal
         poison: "#b763cf", // poison
-        phsycic: "#fa8581", // psychic
+        psychic: "#fa8581", // psychic
         rock: "#c9bb8a", // rock
         steel: "#5695a3", // steel
         water: "#539ddf", // water

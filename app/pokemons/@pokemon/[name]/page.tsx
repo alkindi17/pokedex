@@ -41,11 +41,11 @@ export default async function Pokemon({
 
   return (
     <>
-      <div className="flex h-fit flex-col overflow-hidden max-md:w-screen">
+      <div className="flex flex-col">
         <div
-          className={`h-[40rem] -translate-y-[19rem] -skew-y-[10deg] bg-gradient-to-r from-[transparent] from-25% max-sm:h-[50rem] max-sm:-translate-y-[25rem] max-sm:-skew-y-[10deg] to-${typeName} px-32 py-20 max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8`}
+          className={`h-[40rem] -translate-y-[19rem] -skew-y-[10deg] bg-gradient-to-r from-[transparent] from-25% max-sm:h-[50rem] max-sm:-translate-y-[25rem] max-sm:-skew-y-[10deg] to-${typeName} px-32 pt-20 max-lg:px-8 max-md:px-8 max-md:pt-8`}
         >
-          <div className="relative mx-auto flex h-[22rem] max-w-[1280px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
+          <div className="relative mx-auto flex h-[22rem] max-w-[1130px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col gap-1">
                 {poke.types.map((types: { type: { name: string } }) => (
@@ -69,7 +69,12 @@ export default async function Pokemon({
             <div className="absolute -z-10 flex h-full w-full -translate-y-10 items-start justify-end max-sm:mt-5 max-sm:items-center max-sm:justify-center">
               <div className="w-[330px] max-sm:w-[360px]">
                 <Image
-                  src={poke.sprites.other.home.front_default}
+                  src={
+                    poke.sprites.other.home.front_default ||
+                    poke.sprites.other["official-artwork"].front_default ||
+                    poke.sprites.front_default ||
+                    ""
+                  }
                   alt={poke.name}
                   width={400}
                   height={400}
@@ -80,7 +85,7 @@ export default async function Pokemon({
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1280px] -translate-y-[15rem] px-32 py-20 max-lg:max-w-[640px] max-lg:px-8 max-lg:py-6 max-md:px-8 max-md:py-8 max-sm:-translate-y-[22rem]">
+      <div className="max-lg:t-6 mx-auto max-w-[1380px] -translate-y-[15rem] justify-center px-32 pt-20 max-lg:max-w-[640px] max-lg:px-8 max-md:px-8 max-md:pt-8 max-sm:-translate-y-[22rem]">
         <Tabs defaultValue="battle" className="xl:hidden">
           <TabsList className="mb-8 grid w-full grid-cols-2">
             <TabsTrigger value="battle">Battle</TabsTrigger>

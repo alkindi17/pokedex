@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function PokemonLoading() {
   return (
     <div className="flex h-full justify-center text-center align-middle">

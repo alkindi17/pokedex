@@ -17,7 +17,7 @@ export default function Layout({
     <div className="flex h-screen">
       {children}
       <div
-        className={`w-min-96 h-ful w-96  overflow-auto bg-white ${
+        className={`w-min-96 h-full w-96 overflow-auto bg-white ${
           PokemonSegment === "children" ? "max-lg:hidden" : ""
         }`}
       >

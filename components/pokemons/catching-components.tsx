@@ -3,13 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-export default function Details({
-  poke,
-  species,
-}: {
-  poke: any;
-  species: any;
-}) {
+import React from "react";
+import { PokemonCard } from "@/components/pokemons/pokemon";
+import { Suspense } from "react";
+
+export function Details({ poke, species }: { poke: any; species: any }) {
   return (
     <div>
       <h3 className="pb-2 text-xl font-bold">Details</h3>
@@ -57,7 +55,7 @@ export default function Details({
                 </TableRow>
               )}
 
-              {species.egg_groups && (
+              {species.egg_groups[0] && (
                 <TableRow>
                   <TableCell className="w-32 font-bold">Egg Groups</TableCell>
                   <TableCell>
@@ -104,6 +102,48 @@ export default function Details({
           </Table>
         </CardContent>
       </Card>
+    </div>
+  );
+}
+
+export function Related({ relatedPokemons }: { relatedPokemons: string[] }) {
+  return (
+    <div>
+      <h3 className="pb-2 text-xl font-bold">Related</h3>
+      <div className="grid gap-4">
+        {relatedPokemons.map((pokeName: string) => (
+          <Suspense key={pokeName} fallback={<div>Loading...</div>}>
+            <PokemonCard pokeName={pokeName} />
+          </Suspense>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function Evolution({ evolutionChain }: { evolutionChain: any }) {
+  return (
+    <div>
+      <h3 className="pb-2 text-xl font-bold">Evolution</h3>
+      <div className="relative grid gap-4 pt-2 before:absolute before:-inset-1 before:bottom-3 before:left-8 before:-z-10 before:block before:border-l-4">
+        {evolutionChain.map((evolution: any) => (
+          <Suspense
+            key={evolution.species_name}
+            fallback={<div>Loading...</div>}
+          >
+            <div>
+              <p className="mb-2 ml-11 text-lg font-bold">
+                {evolution.stage === 0
+                  ? "Baby"
+                  : evolution.stage === 1
+                    ? "Base"
+                    : "Stage " + (evolution.stage - 1)}
+              </p>
+              <PokemonCard pokeName={evolution.default_pokemon} />
+            </div>
+          </Suspense>
+        ))}
+      </div>
     </div>
   );
 }
