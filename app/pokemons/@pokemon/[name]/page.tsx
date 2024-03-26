@@ -4,6 +4,9 @@ import TypeIcon from "@/components/pokemons/types-icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BattleDetails from "@/components/pokemons/battle";
 import CatchingDetails from "@/components/pokemons/catching";
+
+import { getPokemon } from "@/lib/pokeapi";
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -14,11 +17,6 @@ export async function generateStaticParams() {
     params: { name: pokemon.name },
   }));
 }
-
-const getPokemon = async (name: string) => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-  return await res.json();
-};
 
 export default async function Pokemon({
   params,
@@ -51,17 +49,22 @@ export default async function Pokemon({
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col gap-1">
                 {poke.types.map((types: { type: { name: string } }) => (
-                  <TypeIcon key={types.type.name} type={types.type.name} />
+                  <TypeIcon
+                    key={types.type.name}
+                    type={types.type.name}
+                    width={45}
+                    height={45}
+                  />
                 ))}
               </div>
               <div className="font-mono text-2xl text-white max-md:text-lg">
                 <p className="origin-bottom rotate-90">
-                  {poke.id.toString().padStart(4, "0")}
+                  {poke.species.url.split("/")[6].toString().padStart(4, "0")}
                 </p>
               </div>
             </div>
             <h1 className="font-title text-7xl capitalize max-md:text-6xl max-sm:translate-y-16">
-              {poke.name}
+              {poke.name.replace(/-/g, " ")}
             </h1>
             <div className="absolute -z-10 flex h-full w-full -translate-y-10 items-start justify-end max-sm:mt-5 max-sm:items-center max-sm:justify-center">
               <div className="w-[330px] max-sm:w-[360px]">

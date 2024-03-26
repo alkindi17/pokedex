@@ -63,7 +63,7 @@ const config = {
         bug: "#92bc2c", // bug
         dark: "#595761", // dark
         dragon: "#0c69c8", // dragon
-        electric: "#f2d94e", // electric
+        electric: "#fca307", // electric
         fairy: "#ee90e6", // fairy
         fighting: "#d3425f", // fighting
         fire: "#fba54c", // fire
