@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import { PokemonCardForSearch } from "@/components/algolia/PokemonCard";
 
 import CustomInfiniteHits from "@/components/algolia/CustomInfiniteHits";
+import { LoadingDots } from "../ui/loading";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -28,7 +29,13 @@ export function Search() {
 
   return (
     <>
-      <Suspense>
+      <Suspense
+        fallback={
+          <div className="flex h-[100dvh] items-center justify-center">
+            <LoadingDots />
+          </div>
+        }
+      >
         <InstantSearchNext indexName="pokedex" searchClient={searchClient}>
           <div className="sticky top-0 z-10 pb-10 pt-4 gradient-mask-b-[rgba(0,0,0,1.0)_100px,rgba(0,0,0,0.8)_80%]">
             <h1 className="text-center font-title text-3xl">Pokedex</h1>
