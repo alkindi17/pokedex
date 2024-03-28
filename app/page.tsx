@@ -1,3 +1,7 @@
-export default async function Home() {
-  return <h1>Hello PokéWorld</h1>;
+"use client";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+  router.push("/pokemons");
 }
