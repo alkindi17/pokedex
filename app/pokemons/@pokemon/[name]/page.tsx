@@ -5,7 +5,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BattleDetails from "@/components/pokemons/battle";
 import CatchingDetails from "@/components/pokemons/catching";
 
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { getPokemon } from "@/lib/pokeapi";
+import Link from "next/link";
 
 export const dynamicParams = false;
 
@@ -47,7 +51,13 @@ export default async function Pokemon({
         >
           <div className="relative mx-auto flex h-[22rem] max-w-[1130px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
             <div className="flex flex-1 justify-between">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col items-center gap-1">
+                <Link href="/pokemons">
+                  <FontAwesomeIcon
+                    icon={faAngleLeft}
+                    className="mb-4 inline w-4 lg:hidden"
+                  />
+                </Link>
                 {poke.types.map((types: { type: { name: string } }) => (
                   <TypeIcon
                     key={types.type.name}

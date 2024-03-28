@@ -83,7 +83,7 @@ export function Details({ poke, species }: { poke: any; species: any }) {
                 </TableRow>
               )}
 
-              {species.gender_rate && (
+              {species.gender_rate >= 0 && (
                 <TableRow>
                   <TableCell className="w-32 font-bold">Gender Ratio</TableCell>
                   <TableCell className="flex gap-5">

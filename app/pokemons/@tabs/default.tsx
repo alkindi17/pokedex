@@ -1,5 +1,7 @@
-import Image from "next/image";
+import { Search } from "@/components/algolia/instant-search";
 
 export default function DefaultTabs() {
-  return <h1>Default Tabs</h1>;
+  return <div className=" overflow-clip">
+      <Search />
+    </div>;
 }

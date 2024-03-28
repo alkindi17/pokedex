@@ -1,7 +1,12 @@
+import { LoadingDots } from "@/components/ui/loading";
+
 export default function PokemonLoading() {
   return (
-    <div className="flex h-full justify-center text-center align-middle">
-      <h1>Loading Pokemon...</h1>
+    <div 
+    className="h-full flex"
+    style={{height: '100vh', display: 'flex', paddingTop: 'auto', paddingBottom: 'auto'}}
+    >
+        <LoadingDots />
     </div>
   );
 }

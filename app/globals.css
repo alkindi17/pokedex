@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .conic-gradient {
+    background: conic-gradient(
+      from 290deg at 50% 50%,
+      rgba(235, 56, 92, 0.35) 0%,
+      rgb(255 104 0 / 0.35) 16%,
+      rgb(255 235 0 / 0.35) 33%,
+      rgb(25 255 0 / 0.35) 50%,
+      rgb(0 243 255 / 0.35) 66%,
+      rgb(0 82 255 / 0.35) 83%,
+      rgb(255 0 52 / 0.35) 100%
+    );
+  }
+}

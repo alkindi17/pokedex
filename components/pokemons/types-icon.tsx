@@ -23,7 +23,7 @@ export default function TypeIcon({
       <Tooltip>
         <TooltipTrigger>
           <div
-            className={`${bgColor} flex items-center justify-center rounded-full p-[22%]`}
+            className={`${bgColor} flex cursor-default items-center justify-center rounded-full p-[22%] hover:opacity-70`}
             style={width && height ? { width, height } : {}}
           >
             <div className="opacity-70">
