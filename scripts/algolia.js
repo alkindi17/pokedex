@@ -36,7 +36,7 @@ async function updatePokemonRecords() {
 }
 
 try {
-  // updatePokemonRecords();
+  updatePokemonRecords();
 } catch (error) {
   console.log(error);
 }
