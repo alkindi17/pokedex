@@ -1,7 +1,5 @@
 require("dotenv").config({ path: ".env.local" });
 
-console.log(process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID);
-
 const algoliasearch = require("algoliasearch");
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID,
