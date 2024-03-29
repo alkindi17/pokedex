@@ -1,7 +1,10 @@
-import { Search } from "@/components/algolia/instant-search";
+import Tabs from "@/app/pokemons/@tabs/home/page";
+import TabsLayout from "@/app/pokemons/@tabs/layout";
 
 export default function DefaultTabs() {
-  return <div className=" overflow-clip">
-      <Search />
-    </div>;
+  return (
+    <TabsLayout>
+      <Tabs />
+    </TabsLayout>
+  );
 }

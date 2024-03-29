@@ -3,7 +3,13 @@
 import { useEffect } from "react";
 
 export function getRecentPokemons() {
-  return JSON.parse(localStorage.getItem("recent") || "[]");
+  let recent;
+
+  if (typeof window !== "undefined") {
+    recent = JSON.parse(localStorage.getItem("recent") || "[]");
+  }
+
+  return recent || [];
 }
 
 export function addRecentPokemon(pokeName: string) {

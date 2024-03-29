@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PokeBall from "@/public/svg/pokeball.svg";
 
 export default function Pokemon() {

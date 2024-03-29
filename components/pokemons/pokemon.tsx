@@ -42,11 +42,25 @@ export async function PokemonCard({ pokeName }: { pokeName: string }) {
   );
 }
 
-export function PokemonIcon({ poke }: { poke: any }) {
+export function PokemonIcon({
+  poke,
+  height = 2.5,
+  width = 2.5,
+}: {
+  poke: any;
+  height?: number;
+  width?: number;
+}) {
   return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e8e8e8]">
+    <div
+      className="relative flex items-center justify-center rounded-full bg-[#e8e8e8]"
+      style={{
+        width: `${width}rem`,
+        height: `${height}rem`,
+      }}
+    >
       <Image
-        className="absolute mx-auto my-auto w-[3.3rem]"
+        className="h-full w-full"
         src={
           poke.sprites.other.home.front_default ||
           poke.sprites.other["official-artwork"].front_default ||
@@ -54,9 +68,22 @@ export function PokemonIcon({ poke }: { poke: any }) {
           ""
         }
         alt={poke.name}
-        width={300}
-        height={300}
+        width={100}
+        height={100}
       />
     </div>
   );
+}
+
+export async function PokemonIconByName({
+  pokeName,
+  width,
+  height,
+}: {
+  pokeName: string;
+  width: number;
+  height: number;
+}) {
+  const poke = await getPokemon(pokeName);
+  return <PokemonIcon poke={poke} width={width} height={height} />;
 }

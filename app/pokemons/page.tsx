@@ -1,5 +1,5 @@
-import Image from "next/image";
+import { redirect } from "next/navigation";
 
 export default function Pokemons() {
-  return <h1></h1>;
+  redirect("/pokemons/home");
 }

@@ -11,8 +11,6 @@ export default function CustomInfiniteHits(props: any) {
   const sentinelRef = useRef(null);
 
   useEffect(() => {
-    console.log(showMore);
-
     if (sentinelRef.current !== null) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
