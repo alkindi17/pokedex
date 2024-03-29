@@ -55,7 +55,7 @@ export default async function Pokemon({
               <div className="flex flex-col items-center gap-1">
                 <Link
                   href="/pokemons"
-                  className="mb-2 flex h-10 w-10 justify-center rounded-full bg-[#e8e8e8] px-2 pb-2 pt-2 hover:bg-[#dcdcdc] lg:hidden"
+                  className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#e8e8e8] px-2 pb-2 pt-2 hover:bg-[#dcdcdc] lg:hidden"
                 >
                   <FontAwesomeIcon icon={faAngleLeft} className="inline w-4" />
                 </Link>
