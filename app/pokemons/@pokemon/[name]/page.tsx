@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { getPokemon } from "@/lib/pokeapi";
 import Link from "next/link";
+import { AddRecentPokemonComponent } from "@/lib/recent-pokemons";
 
 export const dynamicParams = false;
 
@@ -37,7 +38,7 @@ export default async function Pokemon({
     });
   } catch (error) {
     return (
-      <div className="flex h-full flex-col justify-center text-center align-middle">
+      <div className="flex h-[100dvh] flex-col justify-center text-center align-middle">
         <h1>Pokemon not found</h1>
       </div>
     );
@@ -52,11 +53,11 @@ export default async function Pokemon({
           <div className="relative mx-auto flex h-[22rem] max-w-[1130px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col items-center gap-1">
-                <Link href="/pokemons">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    className="mb-4 inline w-4 lg:hidden"
-                  />
+                <Link
+                  href="/pokemons"
+                  className="mb-2 flex h-10 w-10 justify-center rounded-full bg-[#e8e8e8] px-2 pb-2 pt-2 hover:bg-[#dcdcdc] lg:hidden"
+                >
+                  <FontAwesomeIcon icon={faAngleLeft} className="inline w-4" />
                 </Link>
                 {poke.types.map((types: { type: { name: string } }) => (
                   <TypeIcon
@@ -118,6 +119,7 @@ export default async function Pokemon({
           </div>
         </div>
       </div>
+      <AddRecentPokemonComponent pokeName={poke.name} />
     </>
   );
 }
