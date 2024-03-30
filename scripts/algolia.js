@@ -38,5 +38,6 @@ async function updatePokemonRecords() {
 try {
   updatePokemonRecords();
 } catch (error) {
-  console.log(error);
+  console.log("Error updating Pokemon records");
+  console.log(error.message);
 }

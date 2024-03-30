@@ -15,12 +15,7 @@ export default function RecentPokemons() {
     const pokemons = getRecentPokemons();
     const pc = pokemons.map((pokemon: string) => (
       <li key={pokemon} className="hover:scale-105">
-        <Link
-          href={`/pokemons/${pokemon}`}
-          onClick={() => {
-            console.log("clicked");
-          }}
-        >
+        <Link href={`/pokemons/${pokemon}`}>
           <PokemonIconByName pokeName={pokemon} width={6} height={6} />
         </Link>
       </li>
