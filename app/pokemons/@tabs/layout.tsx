@@ -1,9 +1,8 @@
 "use client";
 
-import { SearchBox } from "react-instantsearch";
-import { InstantSearchNext } from "react-instantsearch-nextjs";
+import { SearchBox, InstantSearch } from "react-instantsearch";
 import algoliasearch from "algoliasearch/lite";
-import { Suspense, useState } from "react";
+import { Suspense, useState, memo, useCallback } from "react";
 import { LoadingDots } from "@/components/ui/loading";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +20,7 @@ export default function TabsLayout({
   children: React.ReactNode;
 }) {
   const [showHits, setShowHits] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const { currentTab } = useTabsContext();
 
@@ -33,7 +33,7 @@ export default function TabsLayout({
           </div>
         }
       >
-        <InstantSearchNext indexName="pokedex" searchClient={searchClient}>
+        <InstantSearch indexName="pokedex" searchClient={searchClient}>
           <div className="sticky top-0 z-10 h-36 pb-10 pt-4 gradient-mask-b-[rgba(0,0,0,1.0)_100px,rgba(0,0,0,0.8)_80%]">
             <div className="relative mx-4 my-2 flex items-center justify-between">
               {((currentTab === "home" && showHits) ||
@@ -53,14 +53,18 @@ export default function TabsLayout({
             <SearchBox
               placeholder={"Search for pokemon"}
               submitIconComponent={() => <></>}
-              queryHook={(query, search) => {
-                if (query.length > 0 && currentTab === "home") {
-                  setShowHits(true);
-                } else {
-                  setShowHits(false);
-                }
-                search(query);
-              }}
+              queryHook={useCallback(
+                (query: string, search: Function) => {
+                  setSearchQuery(query);
+                  if (query.length > 0 && currentTab === "home") {
+                    setShowHits(true);
+                  } else {
+                    setShowHits(false);
+                  }
+                  search(query);
+                },
+                [currentTab, showHits],
+              )}
               classNames={{
                 root: "flex justify-center px-2",
                 form: "w-full relative",
@@ -76,7 +80,7 @@ export default function TabsLayout({
           <showHitsProvider.Provider value={{ showHits, setShowHits }}>
             {children}
           </showHitsProvider.Provider>
-        </InstantSearchNext>
+        </InstantSearch>
       </Suspense>
     </div>
   );
