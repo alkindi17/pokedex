@@ -5,11 +5,10 @@ import { InstantSearchNext } from "react-instantsearch-nextjs";
 import algoliasearch from "algoliasearch/lite";
 import { Suspense, useState } from "react";
 import { LoadingDots } from "@/components/ui/loading";
-import { useSelectedLayoutSegments } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { showHitsProvider } from "@/lib/contexts";
+import { showHitsProvider, useTabsContext } from "@/lib/contexts";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -23,7 +22,7 @@ export default function TabsLayout({
 }) {
   const [showHits, setShowHits] = useState(false);
 
-  const tabsSegment = useSelectedLayoutSegments();
+  const { currentTab } = useTabsContext();
 
   return (
     <div className=" overflow-clip">
@@ -37,7 +36,8 @@ export default function TabsLayout({
         <InstantSearchNext indexName="pokedex" searchClient={searchClient}>
           <div className="sticky top-0 z-10 h-36 pb-10 pt-4 gradient-mask-b-[rgba(0,0,0,1.0)_100px,rgba(0,0,0,0.8)_80%]">
             <div className="relative mx-4 my-2 flex items-center justify-between">
-              {(showHits || !tabsSegment.includes("home")) && (
+              {((currentTab === "home" && showHits) ||
+                currentTab !== "home") && (
                 <Link
                   href="/pokemons/home"
                   onClick={() => setShowHits(false)}
@@ -54,7 +54,7 @@ export default function TabsLayout({
               placeholder={"Search for pokemon"}
               submitIconComponent={() => <></>}
               queryHook={(query, search) => {
-                if (query.length > 0) {
+                if (query.length > 0 && currentTab === "home") {
                   setShowHits(true);
                 } else {
                   setShowHits(false);
