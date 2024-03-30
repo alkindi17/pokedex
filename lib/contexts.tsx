@@ -13,3 +13,17 @@ export const showHitsProvider = createContext<HitsContext>({
 export function useHitsContext() {
   return useContext(showHitsProvider);
 }
+
+export type TabsContext = {
+  currentTab: string;
+  setCurrentTab: (tab: string) => void;
+};
+
+export const tabsProvider = createContext<TabsContext>({
+  currentTab: "home",
+  setCurrentTab: () => {},
+});
+
+export function useTabsContext() {
+  return useContext(tabsProvider);
+}

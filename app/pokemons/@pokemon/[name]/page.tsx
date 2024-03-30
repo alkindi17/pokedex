@@ -5,12 +5,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BattleDetails from "@/components/pokemons/battle";
 import CatchingDetails from "@/components/pokemons/catching";
 
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { getPokemon } from "@/lib/pokeapi";
-import Link from "next/link";
 import { AddRecentPokemonComponent } from "@/lib/recent-pokemons";
+import GoBack from "@/components/pokemons/go-back";
 
 export const dynamicParams = false;
 
@@ -53,12 +50,7 @@ export default async function Pokemon({
           <div className="relative mx-auto flex h-[22rem] max-w-[1130px] translate-y-[19rem] skew-y-[10deg] flex-col justify-between align-middle max-lg:max-w-[640px] max-sm:translate-y-[25rem] max-sm:skew-y-[10deg]">
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col items-center gap-1">
-                <Link
-                  href="/pokemons"
-                  className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#e8e8e8] px-2 pb-2 pt-2 hover:bg-[#dcdcdc] lg:hidden"
-                >
-                  <FontAwesomeIcon icon={faAngleLeft} className="inline w-4" />
-                </Link>
+                <GoBack />
                 {poke.types.map((types: { type: { name: string } }) => (
                   <TypeIcon
                     key={types.type.name}
@@ -74,7 +66,7 @@ export default async function Pokemon({
                 </p>
               </div>
             </div>
-            <h1 className="text-wrap font-title text-7xl capitalize max-md:text-6xl max-sm:translate-y-16">
+            <h1 className="break-all font-title text-7xl capitalize max-md:text-6xl max-sm:translate-y-16">
               {poke.name.replace(/-/g, " ")}
             </h1>
             <div className="absolute -z-10 flex h-full w-full -translate-y-10 items-start justify-end max-sm:mt-5 max-sm:items-center max-sm:justify-center">

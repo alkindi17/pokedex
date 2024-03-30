@@ -4,7 +4,11 @@ import CustomInfiniteHits from "@/components/algolia/CustomInfiniteHits";
 export default function Tabs() {
   return (
     <>
-      <CustomInfiniteHits />
+      <CustomInfiniteHits
+        future={{
+          preserveSharedStateOnUnmount: true,
+        }}
+      />
     </>
   );
 }

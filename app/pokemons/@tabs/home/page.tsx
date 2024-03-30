@@ -1,7 +1,6 @@
 "use client";
-import PokeBall from "@/public/svg/pokeball.svg";
 
-import { useHitsContext, HitsContext } from "@/lib/showHitsContext";
+import { useHitsContext } from "@/lib/contexts";
 import CustomInfiniteHits from "@/components/algolia/CustomInfiniteHits";
 
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
@@ -17,25 +16,38 @@ export default function Tabs() {
   const { showHits } = useHitsContext();
   return (
     <>
-      {!showHits && <div className="overflow-clip"> {<RecentPokemons />}</div>}
-      {showHits && <CustomInfiniteHits />}
-      <div className="transition hover:scale-[1.02]">
-        <Link href="/pokemons/list" className="relative ">
-          <Card className="mx-4 mt-6 flex bg-gradient-to-bl from-red-700 to-red-400 text-xl text-white">
-            <div className="my-8 flex items-center gap-2 px-4">
-              <FontAwesomeIcon icon={faSquareArrowUpRight} className="mr-2" />
-              <p>View all pokemons</p>
-            </div>
-            <Image
-              className="absolute -top-4 right-1"
-              src="/img/pokeball.png"
-              alt="pokeball"
-              width={100}
-              height={100}
-            />
-          </Card>
-        </Link>
-      </div>
+      {showHits && (
+        <CustomInfiniteHits
+          future={{
+            preserveSharedStateOnUnmount: true,
+          }}
+        />
+      )}
+      {!showHits && (
+        <>
+          <div className="overflow-clip"> {<RecentPokemons />}</div>
+          <div className="transition hover:scale-[1.02]">
+            <Link href="/pokemons/list" className="relative ">
+              <Card className="mx-4 mt-6 flex bg-gradient-to-bl from-red-700 to-red-400 text-xl text-white">
+                <div className="my-8 flex items-center gap-2 px-4">
+                  <FontAwesomeIcon
+                    icon={faSquareArrowUpRight}
+                    className="mr-2"
+                  />
+                  <p>View all pokemons</p>
+                </div>
+                <Image
+                  className="absolute -top-4 right-1"
+                  src="/img/pokeball.png"
+                  alt="pokeball"
+                  width={100}
+                  height={100}
+                />
+              </Card>
+            </Link>
+          </div>
+        </>
+      )}
     </>
   );
 }

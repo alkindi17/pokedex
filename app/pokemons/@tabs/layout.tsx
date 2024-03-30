@@ -9,7 +9,7 @@ import { useSelectedLayoutSegments } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { showHitsProvider } from "@/lib/showHitsContext";
+import { showHitsProvider } from "@/lib/contexts";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -37,19 +37,15 @@ export default function TabsLayout({
         <InstantSearchNext indexName="pokedex" searchClient={searchClient}>
           <div className="sticky top-0 z-10 h-36 pb-10 pt-4 gradient-mask-b-[rgba(0,0,0,1.0)_100px,rgba(0,0,0,0.8)_80%]">
             <div className="relative mx-4 my-2 flex items-center justify-between">
-              {!tabsSegment.includes("home") ||
-                (showHits && (
-                  <Link
-                    href="/pokemons/home"
-                    onClick={() => setShowHits(false)}
-                    className="absolute mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-white bg-opacity-40 px-2 pb-2 pt-2 hover:bg-opacity-50"
-                  >
-                    <FontAwesomeIcon
-                      icon={faAngleLeft}
-                      className="inline w-4"
-                    />
-                  </Link>
-                ))}
+              {(showHits || !tabsSegment.includes("home")) && (
+                <Link
+                  href="/pokemons/home"
+                  onClick={() => setShowHits(false)}
+                  className="absolute mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-white bg-opacity-40 px-2 pb-2 pt-2 hover:bg-opacity-50"
+                >
+                  <FontAwesomeIcon icon={faAngleLeft} className="inline w-4" />
+                </Link>
+              )}
               <h1 className="flex-1 text-center font-title text-3xl">
                 Pokedex
               </h1>
