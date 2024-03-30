@@ -63,6 +63,7 @@ export default function TabsLayout({
                   }
                   search(query);
                 },
+                // eslint-disable-next-line react-hooks/exhaustive-deps
                 [currentTab, showHits],
               )}
               classNames={{

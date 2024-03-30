@@ -14,6 +14,20 @@ export function useHitsContext() {
   return useContext(showHitsProvider);
 }
 
+export type RoutesContext = {
+  currentRoute: string;
+  setCurrentRoute: (tab: string) => void;
+};
+
+export const routeProvider = createContext<RoutesContext>({
+  currentRoute: "tabs",
+  setCurrentRoute: () => {},
+});
+
+export function useRoutesContext() {
+  return useContext(routeProvider);
+}
+
 export type TabsContext = {
   currentTab: string;
   setCurrentTab: (tab: string) => void;
