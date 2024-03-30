@@ -21,7 +21,6 @@ export default function Layout({
     if (pathname === "home" || pathname === "list") {
       setCurrentRoute("tabs");
       setCurrentTab(pathname);
-      console.log(currentTab);
     } else {
       setCurrentRoute("pokemon");
     }

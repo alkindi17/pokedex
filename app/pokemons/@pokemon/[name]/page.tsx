@@ -66,7 +66,7 @@ export default async function Pokemon({
                 </p>
               </div>
             </div>
-            <h1 className="break-all font-title text-7xl capitalize max-md:text-6xl max-sm:translate-y-16">
+            <h1 className="break-all font-title text-7xl capitalize max-md:text-5xl max-sm:translate-y-16">
               {poke.name.replace(/-/g, " ")}
             </h1>
             <div className="absolute -z-10 flex h-full w-full -translate-y-10 items-start justify-end max-sm:mt-5 max-sm:items-center max-sm:justify-center">

@@ -71,7 +71,8 @@ export default function TabsLayout({
                 form: "w-full relative",
                 input: "w-full border-gray-300 border rounded-md p-2",
                 submit: "hidden",
-                reset: "bg-white px-2 py-2 absolute absolute right-2 top-2",
+                reset:
+                  "bg-white rounded-full px-2 py-2 absolute absolute right-2 top-2",
                 loadingIcon: "hidden",
               }}
             />
