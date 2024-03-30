@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Pokédex",
   description: "A pokedex app, displaying all pokemons and their details",
   icons: {
-    icon: "img/icon.png",
+    icon: "https://raw.githubusercontent.com/alkindi17/pokedex/main/public/img/icon.png",
   },
 };
 
