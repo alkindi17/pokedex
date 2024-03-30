@@ -29,7 +29,7 @@ export default function RecentPokemons() {
     <div className="flex h-36 flex-col">
       <h2 className="mb-2 px-4 text-xl font-bold">Recently viewed</h2>
       <Suspense fallback={<LoadingDots />}>
-        <ul className="flex h-28 items-center space-x-4 overflow-x-scroll px-4">
+        <ul className="no-scrollbar flex h-28 items-center space-x-4 overflow-x-scroll px-4">
           {recentPokemonsComponents}
         </ul>
       </Suspense>

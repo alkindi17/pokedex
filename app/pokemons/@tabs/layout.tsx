@@ -2,7 +2,7 @@
 
 import { SearchBox, InstantSearch } from "react-instantsearch";
 import algoliasearch from "algoliasearch/lite";
-import { Suspense, useState, memo, useCallback } from "react";
+import { Suspense, useState, useCallback } from "react";
 import { LoadingDots } from "@/components/ui/loading";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
