@@ -17,6 +17,9 @@ const roboto_mono = Space_Mono({
 export const metadata: Metadata = {
   title: "Pokédex",
   description: "A pokedex app, displaying all pokemons and their details",
+  icons: {
+    icon: "img/icon.png",
+  },
 };
 
 export default function RootLayout({

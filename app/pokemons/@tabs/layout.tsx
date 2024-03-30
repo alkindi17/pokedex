@@ -20,8 +20,6 @@ export default function TabsLayout({
   children: React.ReactNode;
 }) {
   const [showHits, setShowHits] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-
   const { currentTab } = useTabsContext();
 
   return (
@@ -55,7 +53,6 @@ export default function TabsLayout({
               submitIconComponent={() => <></>}
               queryHook={useCallback(
                 (query: string, search: Function) => {
-                  setSearchQuery(query);
                   if (query.length > 0 && currentTab === "home") {
                     setShowHits(true);
                   } else {
