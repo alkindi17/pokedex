@@ -15,7 +15,7 @@ const roboto_mono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pokedex",
+  title: "Pokédex",
   description: "A pokedex app, displaying all pokemons and their details",
 };
 

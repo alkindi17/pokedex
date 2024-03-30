@@ -47,7 +47,7 @@ export default function TabsLayout({
                 </Link>
               )}
               <h1 className="flex-1 text-center font-title text-3xl">
-                Pokedex
+                Pokédex
               </h1>
             </div>
             <SearchBox
