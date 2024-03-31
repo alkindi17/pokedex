@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { showHitsProvider, useTabsContext } from "@/lib/contexts";
+import Profile from "@/components/ui/profile";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -47,6 +48,9 @@ export default function TabsLayout({
               <h1 className="flex-1 text-center font-title text-3xl">
                 Pokédex
               </h1>
+              <div className="absolute right-0 mb-2">
+                <Profile />
+              </div>
             </div>
             <SearchBox
               placeholder={"Search for pokemon"}

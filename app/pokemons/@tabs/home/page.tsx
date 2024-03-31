@@ -7,9 +7,9 @@ import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import RecentPokemons from "@/components/tabs/recent-pokemons";
+import FavouritePokemons from "@/components/tabs/favourite-pokemons";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Tabs() {
@@ -24,8 +24,9 @@ export default function Tabs() {
         />
       )}
       {!showHits && (
-        <>
+        <div className="space-y-6">
           <div className="overflow-clip"> {<RecentPokemons />}</div>
+          <div className="overflow-clip"> {<FavouritePokemons />}</div>
           <div className="transition hover:scale-[1.02]">
             <Link href="/pokemons/list" className="relative ">
               <Card className="mx-4 mt-6 flex bg-gradient-to-bl from-red-700 to-red-400 text-xl text-white">
@@ -46,7 +47,7 @@ export default function Tabs() {
               </Card>
             </Link>
           </div>
-        </>
+        </div>
       )}
     </>
   );
