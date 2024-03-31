@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${luckiest_guy.variable} ${roboto_mono.variable}`}
+      className={`${inter.variable} ${luckiest_guy.variable} ${roboto_mono.variable} bg-[#f5f5f5]`}
     >
       <body className={inter.className}>
         {children}
