@@ -3,13 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import TypeIcon from "@/components/pokemons/types-icon";
 import { usePathname } from "next/navigation";
+import { useRoutesContext } from "@/lib/contexts";
 
 export function PokemonCardForSearch({ img, name, national_no, types }: any) {
   const pathname = usePathname();
+  const { setCurrentRoute } = useRoutesContext();
   return (
-    <Link href={`/pokemons/${name}`}>
+    <Link
+      href={`/pokemons/${name}`}
+      onClick={() => {
+        setCurrentRoute("pokemon");
+      }}
+    >
       <Card
-        className={`cursor-pointer p-0 transition ease-in hover:bg-slate-50 ${pathname === `/pokemons/${name}` ? "cursor-default border border-slate-300 bg-slate-200 hover:bg-slate-200" : ""}`}
+        className={`cursor-pointer p-0 transition ease-in hover:bg-slate-50 ${pathname === `/pokemons/${name}` ? "lg:border lg:border-slate-300 lg:bg-slate-200 lg:hover:bg-slate-200" : ""}`}
       >
         <CardContent className="m-0 flex items-center gap-2 p-4">
           <div className="relative flex flex-1 gap-4">

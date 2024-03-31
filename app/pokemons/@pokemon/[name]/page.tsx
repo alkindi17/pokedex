@@ -9,6 +9,8 @@ import { getPokemon } from "@/lib/pokeapi";
 import { AddRecentPokemonComponent } from "@/lib/recent-pokemons";
 import GoBack from "@/components/pokemons/go-back";
 
+import AddToFavourite from "@/components/pokemons/add-to-favourite";
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -66,9 +68,14 @@ export default async function Pokemon({
                 </p>
               </div>
             </div>
-            <h1 className="break-all font-title text-7xl capitalize max-md:text-5xl max-sm:translate-y-16">
-              {poke.name.replace(/-/g, " ")}
-            </h1>
+            <div className="flex justify-between gap-2">
+              <h1 className=" break-before-all align-text-bottom font-title text-7xl capitalize max-xl:text-5xl max-sm:translate-y-16">
+                {poke.name.replace(/-/g, " ")}
+              </h1>
+              <div className="mb-2 flex items-end max-sm:translate-y-16 xl:mb-4">
+                <AddToFavourite pokeName={poke.name} />
+              </div>
+            </div>
             <div className="absolute -z-10 flex h-full w-full -translate-y-10 items-start justify-end max-sm:mt-5 max-sm:items-center max-sm:justify-center">
               <div className="w-[330px] max-sm:w-[360px]">
                 <Image

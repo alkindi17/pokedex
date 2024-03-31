@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Luckiest_Guy, Space_Mono } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -29,7 +30,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${luckiest_guy.variable} ${roboto_mono.variable}`}
     >
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

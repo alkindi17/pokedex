@@ -5,17 +5,25 @@ import { Suspense, useEffect, useState } from "react";
 import { PokemonIconByName } from "@/components/pokemons/pokemon";
 import Link from "next/link";
 import { LoadingDots } from "../ui/loading";
+import { useRoutesContext } from "@/lib/contexts";
 
 export default function RecentPokemons() {
   const [recentPokemonsComponents, setRecentPokemonsComponents] = useState<
     string[]
   >([]);
 
+  const { setCurrentRoute } = useRoutesContext();
+
   useEffect(() => {
     const pokemons = getRecentPokemons();
     const pc = pokemons.map((pokemon: string) => (
       <li key={pokemon} className="hover:scale-105">
-        <Link href={`/pokemons/${pokemon}`}>
+        <Link
+          href={`/pokemons/${pokemon}`}
+          onClick={() => {
+            setCurrentRoute("pokemon");
+          }}
+        >
           <PokemonIconByName pokeName={pokemon} width={6} height={6} />
         </Link>
       </li>

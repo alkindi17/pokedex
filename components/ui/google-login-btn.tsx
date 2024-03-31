@@ -1,13 +1,36 @@
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { auth } from "@/lib/firebase";
+import { auth, app } from "@/lib/firebase";
+import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 export default function GoogleLoginBtn() {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle().catch((error) => {
-      console.error(error);
-    });
+  const handleGoogleSignIn = async () => {
+    signInWithGoogle()
+      .then(async (result) => {
+        if (result) {
+          const user = result.user;
+          const db = getFirestore(app);
+          const userRef = doc(db, "users", user.uid); // Reference to user document in Firestore
+
+          // Check if user exists in Firestore
+          const userDoc = await getDoc(userRef);
+
+          // If user does not exist, create a new user document with empty favourites array
+          if (!userDoc.exists()) {
+            await setDoc(
+              userRef,
+              {
+                favourites: [],
+              },
+              { merge: true },
+            );
+          }
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
