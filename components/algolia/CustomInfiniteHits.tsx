@@ -15,7 +15,7 @@ export default function CustomInfiniteHits(props: any) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isLastPage) {
-            showMore();
+            showMore ? showMore() : null;
           }
         });
       });

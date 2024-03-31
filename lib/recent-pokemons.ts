@@ -17,7 +17,7 @@ export function addRecentPokemon(pokeName: string) {
 
   recent = recent.filter((p: any) => p !== pokeName);
 
-  if (recent.length >= 5) {
+  if (recent.length >= 10) {
     recent.pop();
   }
 
