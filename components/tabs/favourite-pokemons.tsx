@@ -12,6 +12,7 @@ import { useRoutesContext } from "@/lib/contexts";
 
 export default function FavouritePokemons() {
   const [favouritesComponent, setFavouritesComponent] = useState<string[]>([]);
+  const [mounted, setMounted] = useState(false);
   const [user, loading, error] = useAuthState(auth);
   const { setCurrentRoute } = useRoutesContext();
 
@@ -43,6 +44,7 @@ export default function FavouritePokemons() {
         setFavouritesComponent(pc);
       };
       getUserData();
+      setMounted(true);
     }
   }, [userDoc, loadingUserDoc, setCurrentRoute]);
 
@@ -55,16 +57,20 @@ export default function FavouritePokemons() {
       ) : user ? (
         loadingUserDoc && !userDoc ? (
           <LoadingDots />
-        ) : favouritesComponent.length > 0 ? (
-          <Suspense fallback={<LoadingDots />}>
-            <div className="flex flex-wrap">
-              <ul className="no-scrollbar flex h-28 items-center space-x-4 overflow-x-scroll px-4">
-                {favouritesComponent}
-              </ul>
-            </div>
-          </Suspense>
+        ) : mounted ? (
+          favouritesComponent.length > 0 ? (
+            <Suspense fallback={<LoadingDots />}>
+              <div className="flex flex-wrap">
+                <ul className="no-scrollbar flex h-28 items-center space-x-4 overflow-x-scroll px-4">
+                  {favouritesComponent}
+                </ul>
+              </div>
+            </Suspense>
+          ) : (
+            <p className="px-4">You don&apos;t have any favourite pokemons</p>
+          )
         ) : (
-          <p className="px-4">You don&apos;t have any favourite pokemons</p>
+          <LoadingDots />
         )
       ) : (
         <p className="px-4">Sign in to view your favourites</p>
