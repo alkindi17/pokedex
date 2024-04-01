@@ -40,7 +40,7 @@ export default function GenerateRandomPokemon() {
   };
 
   return (
-    <div className="flex h-36 flex-col">
+    <div className="flex h-44 flex-col">
       <h2 className="mx-4 mb-2 text-xl font-bold">Random Pokemon</h2>
       <div className="mx-4">
         {!randomPokemon && !generating ? (
