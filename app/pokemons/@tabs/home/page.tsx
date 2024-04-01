@@ -20,10 +20,10 @@ export default function Tabs() {
       )}
       {!showHits && (
         <div className="mb-10 space-y-6">
+          <ViewAll />
           <div className="overflow-clip"> {<RecentPokemons />}</div>
           <div className="overflow-clip"> {<FavouritePokemons />}</div>
           <GenerateRandomPokemon />
-          <ViewAll />
         </div>
       )}
     </>
