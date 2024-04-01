@@ -46,7 +46,8 @@ export default function FavouritePokemons() {
       getUserData();
       setMounted(true);
     }
-  }, [userDoc, loadingUserDoc, setCurrentRoute]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userDoc, loadingUserDoc]);
 
   return (
     <div className="flex h-36 flex-col">
