@@ -8,7 +8,7 @@ export default function ViewAll() {
   return (
     <div className="transition hover:scale-[1.01]">
       <Link href="/pokemons/list" className="relative">
-        <Card className="mx-4 mt-6 flex justify-between overflow-clip bg-[#E67F70] from-red-700 to-red-400 text-xl text-white">
+        <Card className="mx-4 mt-2 flex justify-between overflow-clip bg-[#E67F70] from-red-700 to-red-400 text-xl text-white">
           <div className="h-20">
             <div className="flex  items-center gap-2 px-4 py-3">
               <p className="text-2xl font-bold">View all pokemons</p>
