@@ -26,12 +26,8 @@ export default function Tabs() {
         />
       )}
       {!showHits && (
-        <div className="space-y-6">
-          <div className="overflow-clip"> {<RecentPokemons />}</div>
-          <div className="overflow-clip"> {<FavouritePokemons />}</div>
-          <GenerateRandomPokemon />
-
-          <div className="pt-4 transition hover:scale-[1.01]">
+        <div className="mb-6 space-y-6">
+          <div className="transition hover:scale-[1.01]">
             <Link href="/pokemons/list" className="relative">
               <Card className="mx-4 mt-6 flex bg-gradient-to-bl from-red-700 to-red-400 text-xl text-white">
                 <div className="my-7 flex items-center gap-2 px-4">
@@ -51,6 +47,9 @@ export default function Tabs() {
               </Card>
             </Link>
           </div>
+          <div className="overflow-clip"> {<RecentPokemons />}</div>
+          <div className="overflow-clip"> {<FavouritePokemons />}</div>
+          <GenerateRandomPokemon />
         </div>
       )}
     </>

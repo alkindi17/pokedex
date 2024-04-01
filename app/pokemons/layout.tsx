@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { routeProvider, tabsProvider } from "@/lib/contexts";
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 export default function Layout({
   children,
   pokemon,
@@ -13,16 +15,32 @@ export default function Layout({
   pokemon: React.ReactNode;
   tabs: React.ReactNode;
 }) {
-  const [currentRoute, setCurrentRoute] = useState("tabs");
+  const [currentRoute, setCurrentRouteState] = useState("tabs");
   const [currentTab, setCurrentTab] = useState("home");
-  const pathname = usePathname().split("/").reverse()[0];
+  const path = usePathname();
+  const pathname = path.split("/").reverse()[0];
+
+  const router = useRouter();
+
+  const setCurrentRoute = (route: string) => {
+    if (route === "tabs") {
+      setCurrentRouteState("tabs");
+      window.history.replaceState(
+        { ...window.history.state },
+        "",
+        `/pokemons/${currentTab}`,
+      );
+    } else if (route === "pokemon") {
+      setCurrentRouteState("pokemon");
+    }
+  };
 
   useEffect(() => {
     if (pathname === "home" || pathname === "list") {
-      setCurrentRoute("tabs");
+      setCurrentRouteState("tabs");
       setCurrentTab(pathname);
     } else {
-      setCurrentRoute("pokemon");
+      setCurrentRouteState("pokemon");
     }
   }, [pathname]);
 
