@@ -28,7 +28,7 @@ export function PokemonCard({ pokeName }: { pokeName: string }) {
         <Link
           href={`/pokemons/${poke.name}`}
           onClick={() => {
-            setCurrentRoute(poke.name);
+            setCurrentRoute("pokemon");
           }}
         >
           <Card className="cursor-pointer p-0 transition ease-in hover:bg-slate-50">
