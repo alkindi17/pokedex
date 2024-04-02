@@ -42,13 +42,13 @@ git clone https://github.com/alkindi17/pokedex.git
 cd pokedex
 ```
 
-4. Install the dependencies.
+3. Install the dependencies.
 
 ```bash
 npm install
 ```
 
-5. Start the development server.
+4. Start the development server.
 
 ```bash
 npm run dev
