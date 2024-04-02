@@ -36,8 +36,11 @@ async function updatePokemonRecords() {
 }
 
 try {
-  updatePokemonRecords();
+  if (process.env.ALGOLIA_ADMIN_API_KEY) {
+    updatePokemonRecords();
+  } else {
+    console.log("No Algolia Admin API Key found");
+  }
 } catch (error) {
   console.log("Error updating Pokemon records");
-  console.log(error.message);
 }
