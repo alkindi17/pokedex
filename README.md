@@ -40,8 +40,8 @@ git clone https://github.com/alkindi17/pokedex.git
 cd pokedex
 ```
 
-3. Create `.env.local` file at root directory, and edit to link to your Algolia account.
-   To use my algolia account for review purposes please contact me on **contact@alialkindi.dev**
+3. Create `.env.local` file at root directory, and edit to link to your Algolia account.  
+   To use my algolia account for review purposes please contact me **contact@alialkindi.dev**
 
 ```
 ALGOLIA_ADMIN_API_KEY = <Your Admin API Key>
