@@ -24,7 +24,9 @@ This is a React application built with Next.js. It displays all Pokémon and the
 - **Google Firebase** for secure user authentication and data storage.
 - **Algolia** for instant search functionality.
 
-## Cloning & Running the Project
+## How to clone and run?
+
+### Via Git
 
 To clone and run the project, follow these steps:
 
@@ -50,6 +52,24 @@ npm install
 
 ```bash
 npm run dev
+```
+
+The application should be available at `http://localhost:3000`.
+
+### With Docker Image
+
+To pull and run the Docker image of the project, follow these steps:
+
+1. Pull the Docker image from Docker Hub:
+
+```bash
+docker pull alialkindi/pokedex:latest
+```
+
+2. run the Docker container:
+
+```bash
+docker run -p 3000:3000 alialkindi/pokedex:latest
 ```
 
 The application should be available at `http://localhost:3000`.
