@@ -50,7 +50,7 @@ export default function Layout({
         <div className="flex h-[100dvh]">
           {children}
           <div
-            className={`w-min-96 h-[100dvh] w-96 overflow-auto border-r bg-[#f5f5f5] max-lg:w-full ${
+            className={`w-min-96 h-[100dvh] w-96 overflow-auto border-r max-lg:w-full ${
               currentRoute == "tabs" ? "" : "max-lg:hidden"
             }`}
           >

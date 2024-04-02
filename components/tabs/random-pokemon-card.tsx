@@ -5,11 +5,11 @@ import Link from "next/link";
 import { getPokemon } from "@/lib/pokeapi";
 import TypeIcon from "@/components/pokemons/types-icon";
 import { PokemonIcon } from "@/components/pokemons/pokemon";
-import { Suspense } from "react";
 import { useRoutesContext } from "@/lib/contexts";
 import { useState, useEffect } from "react";
+import { PokemonCard } from "@/components/pokemons/pokemon";
 
-export function PokemonCard({ pokeName }: { pokeName: string }) {
+export function RandomPokemonCard({ pokeName }: { pokeName: string }) {
   const [poke, setPoke] = useState<any>();
 
   const { setCurrentRoute } = useRoutesContext();
@@ -31,7 +31,7 @@ export function PokemonCard({ pokeName }: { pokeName: string }) {
             setCurrentRoute("pokemon");
           }}
         >
-          <Card className="cursor-pointer p-0 transition ease-in hover:bg-slate-50">
+          {/* <Card className="cursor-pointer p-0 transition ease-in hover:bg-slate-50">
             <CardContent className="m-0 flex items-center gap-2 p-4">
               <div className="relative flex flex-1 gap-4">
                 <PokemonIcon poke={poke} />
@@ -53,7 +53,8 @@ export function PokemonCard({ pokeName }: { pokeName: string }) {
                 ))}
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
+          <PokemonCard pokeName={pokeName} />
         </Link>
       )}
     </>

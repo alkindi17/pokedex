@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import React from "react";
 import { PokemonCard } from "@/components/pokemons/pokemon";
 import { Suspense } from "react";
+import Link from "next/link";
 
 export function Details({ poke, species }: { poke: any; species: any }) {
   return (
@@ -113,7 +114,9 @@ export function Related({ relatedPokemons }: { relatedPokemons: string[] }) {
       <div className="grid gap-4">
         {relatedPokemons.map((pokeName: string) => (
           <Suspense key={pokeName} fallback={<div>Loading...</div>}>
-            <PokemonCard pokeName={pokeName} />
+            <Link href={`/pokemons/${pokeName}`}>
+              <PokemonCard pokeName={pokeName} />
+            </Link>
           </Suspense>
         ))}
       </div>
@@ -139,7 +142,9 @@ export function Evolution({ evolutionChain }: { evolutionChain: any }) {
                     ? "Base"
                     : "Stage " + (evolution.stage - 1)}
               </p>
-              <PokemonCard pokeName={evolution.default_pokemon} />
+              <Link href={`/pokemons/${evolution.default_pokemon}`}>
+                <PokemonCard pokeName={evolution.default_pokemon} />
+              </Link>
             </div>
           </Suspense>
         ))}

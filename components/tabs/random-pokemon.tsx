@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { PokemonCard } from "@/components/tabs/random-pokemon-card";
+import { Suspense, useEffect, useState } from "react";
+import { RandomPokemonCard } from "@/components/tabs/random-pokemon-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 
@@ -27,16 +27,13 @@ export default function GenerateRandomPokemon() {
   const getRandomPokemon = () => {
     setGenerating(true);
     const randomIndex = Math.floor(Math.random() * allPokemons.length);
-    // wait for 1 second to simulate loading
-    setTimeout(
-      () => {
-        setRandomPokemon(
-          <PokemonCard pokeName={allPokemons[randomIndex]?.name} />,
-        );
-        setGenerating(false);
-      },
-      !randomPokemon ? 1000 : 1000,
+    setRandomPokemon(
+      <RandomPokemonCard pokeName={allPokemons[randomIndex]?.name} />,
     );
+    // wait for 1 second to simulate loading
+    setTimeout(() => {
+      setGenerating(false);
+    }, 1000);
   };
 
   return (
@@ -47,14 +44,21 @@ export default function GenerateRandomPokemon() {
           <Button
             onClick={getRandomPokemon}
             className="h-[71px] w-full rounded-md border py-2 text-xl font-bold transition duration-200"
-            disabled={generating}
           >
             Generate
           </Button>
-        ) : generating ? (
-          <Skeleton className="h-[71px] w-full rounded-md bg-gray-300" />
         ) : (
-          <div className="h-[71px] w-full">{randomPokemon}</div>
+          <>
+            <Skeleton
+              className="h-[71px] w-full rounded-md bg-gray-300"
+              hidden={!generating}
+            />
+            <div className="h-[71px] w-full" hidden={generating}>
+              <Suspense fallback={<Skeleton className="h-[71px] w-full" />}>
+                {randomPokemon}
+              </Suspense>
+            </div>
+          </>
         )}
         {randomPokemon && (
           <Button

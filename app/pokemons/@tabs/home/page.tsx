@@ -11,13 +11,7 @@ export default function Tabs() {
   const { showHits } = useHitsContext();
   return (
     <>
-      {showHits && (
-        <CustomInfiniteHits
-          future={{
-            preserveSharedStateOnUnmount: true,
-          }}
-        />
-      )}
+      {showHits && <CustomInfiniteHits />}
       {!showHits && (
         <div className="mb-10 space-y-6">
           <ViewAll />
