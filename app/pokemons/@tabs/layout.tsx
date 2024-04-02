@@ -6,9 +6,17 @@ import { Suspense, useState, useCallback } from "react";
 import { LoadingDots } from "@/components/ui/loading";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faFilter } from "@fortawesome/free-solid-svg-icons";
 import { showHitsProvider, useTabsContext } from "@/lib/contexts";
 import Profile from "@/components/ui/profile";
+import { Button } from "@/components/ui/button";
+import CustomRefinementList from "@/components/algolia/CustomRefinementList";
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -21,6 +29,7 @@ export default function TabsLayout({
   children: React.ReactNode;
 }) {
   const [showHits, setShowHits] = useState(false);
+  const [showRefine, setShowRefine] = useState(false);
   const { currentTab } = useTabsContext();
 
   return (
@@ -52,34 +61,54 @@ export default function TabsLayout({
                 <Profile />
               </div>
             </div>
-            <SearchBox
-              placeholder={"Search for pokemon"}
-              submitIconComponent={() => <></>}
-              queryHook={useCallback(
-                (query: string, search: Function) => {
-                  if (query.length > 0 && currentTab === "home") {
-                    setShowHits(true);
-                  } else {
-                    setShowHits(false);
-                  }
-                  search(query);
-                },
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                [currentTab, showHits],
-              )}
-              classNames={{
-                root: "flex justify-center px-2",
-                form: "w-full relative",
-                input: "w-full border-gray-300 border rounded-md p-2",
-                submit: "hidden",
-                reset:
-                  "bg-white rounded-full px-2 py-2 absolute absolute right-2 top-2",
-                loadingIcon: "hidden",
-              }}
-            />
+            <div className="flex w-full gap-1 px-2">
+              <SearchBox
+                placeholder={"Search for pokemon"}
+                submitIconComponent={() => <></>}
+                queryHook={useCallback(
+                  (query: string, search: Function) => {
+                    if (query.length > 0 && currentTab === "home") {
+                      setShowHits(true);
+                    } else {
+                      setShowHits(false);
+                    }
+                    search(query);
+                  },
+                  // eslint-disable-next-line react-hooks/exhaustive-deps
+                  [currentTab, showHits],
+                )}
+                classNames={{
+                  root: "flex justify-center flex-1",
+                  form: "w-full relative",
+                  input: "w-full border-gray-300 border rounded-md p-2",
+                  submit: "hidden",
+                  reset:
+                    "bg-white rounded-full px-2 py-2 absolute absolute right-2 top-2",
+                  loadingIcon: "hidden",
+                }}
+              />
+              <Popover open={true}>
+                <PopoverTrigger asChild>
+                  <Button
+                    onClick={() => {
+                      if (!showRefine && currentTab === "home") {
+                        setShowHits(true);
+                      }
+                      setShowRefine(!showRefine);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faFilter} />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent hidden={!showRefine}>
+                  <CustomRefinementList attribute="types" />
+                </PopoverContent>
+              </Popover>
+            </div>
             <div className="absolute top-0 -z-30 h-full w-full bg-white"></div>
             <div className="before:conic-gradient absolute top-0 -z-20 h-full w-full before:pointer-events-none before:absolute before:h-[100%] before:w-[100%] before:scale-125 before:blur-xl after:absolute after:h-full after:w-full"></div>
           </div>
+
           <showHitsProvider.Provider value={{ showHits, setShowHits }}>
             {children}
           </showHitsProvider.Provider>

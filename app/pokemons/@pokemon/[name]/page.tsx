@@ -83,7 +83,7 @@ export default async function Pokemon({
                     poke.sprites.other.home.front_default ||
                     poke.sprites.other["official-artwork"].front_default ||
                     poke.sprites.front_default ||
-                    ""
+                    "/img/Empty.png"
                   }
                   alt={poke.name}
                   width={400}

@@ -26,7 +26,7 @@ async function updatePokemonRecords() {
           pokeData.sprites.other.home.front_default ||
           pokeData.sprites.other["official-artwork"].front_default ||
           pokeData.sprites.front_default ||
-          "",
+          "/img/Empty.png",
         types: pokeData.types.map((types) => types.type.name),
       };
     }),
