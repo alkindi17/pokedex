@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokédex
 
-## Getting Started
+Visit at: https://pokedex.alialkindi.dev
 
-First, run the development server:
+This is a React application built with Next.js. It displays all Pokémon and their details, with the ability to search and filter the list of pokemons, and more.
+
+## Project Overview
+
+##### Features:
+
+- Stunning responsive UI.
+- Mobile Screen friendly.
+- Browse full list of pokémons seamlessly.
+- View detailed pokemons details.
+- Search and filter pokemons.
+- Add pokemons to favourites.
+- Random pokemon getter.
+- View your recently viewed pokemons.
+- Secure Login with Google Authentication.
+
+##### Major Libraries Used:
+
+- **Shadcn/UI** for UI components.
+- **Google Firebase** for secure user authentication and data storage.
+- **Algolia** for instant search functionality.
+
+## Cloning & Running the Project
+
+To clone and run the project, follow these steps:
+
+1. Clone the repository to your local machine.
+
+```bash
+git clone https://github.com/alkindi17/pokedex.git
+```
+
+2. Navigate to the project directory.
+
+```bash
+cd pokedex
+```
+
+3. Create `.env.local` file at root directory, and edit to link to your Algolia account.
+   To use my algolia account for review purposes please contact me on **contact@alialkindi.dev**
+
+```
+ALGOLIA_ADMIN_API_KEY = <Your Admin API Key>
+NEXT_PUBLIC_ALGOLIA_APPLICATION_ID = <Your Application ID>
+NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY = <Your Search API Key>
+```
+
+4. Install the dependencies.
+
+```bash
+npm install
+```
+
+5. Start the development server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application should be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions or feedback, please feel free to contact me **contact@alialkindi.dev**.
