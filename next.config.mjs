@@ -11,10 +11,7 @@ const nextConfig = {
 
     return config;
   },
-  env: {
-    ALGOLIA_APPLICATION_ID: process.env.ALGOLIA_APPLICATION_ID,
-    ALGOLIA_ADMIN_API_KEY: process.env.ALGOLIA_ADMIN_API_KEY,
-  },
+  output: "standalone",
 };
 
 export default nextConfig;
