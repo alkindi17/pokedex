@@ -41,6 +41,7 @@ cd pokedex
 ```
 
 3. Create `.env.local` file at root directory, and edit to link to your Algolia account.  
+   Create your account at https://www.algolia.com.  
    To use my algolia account for review purposes please contact me **contact@alialkindi.dev**
 
 ```
