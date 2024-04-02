@@ -66,11 +66,7 @@ To pull and run the Docker image of the project, follow these steps:
 docker pull alialkindi/pokedex:latest
 ```
 
-<<<<<<< HEAD
-2. run the Docker container:
-=======
 2. Run the Docker container:
->>>>>>> 9e6db0c (Update README.md)
 
 ```bash
 docker run -p 3000:3000 alialkindi/pokedex:latest
