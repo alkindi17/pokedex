@@ -6,7 +6,7 @@ This is a React application built with Next.js. It displays all Pokémon and the
 
 ## Project Overview
 
-##### Features:
+#### Features:
 
 - Stunning responsive UI.
 - Mobile Screen friendly.
@@ -18,7 +18,7 @@ This is a React application built with Next.js. It displays all Pokémon and the
 - View your recently viewed pokemons.
 - Secure Login with Google Authentication.
 
-##### Major Libraries Used:
+#### Major Libraries Used:
 
 - **Shadcn/UI** for UI components.
 - **Google Firebase** for secure user authentication and data storage.
@@ -66,7 +66,11 @@ To pull and run the Docker image of the project, follow these steps:
 docker pull alialkindi/pokedex:latest
 ```
 
+<<<<<<< HEAD
 2. run the Docker container:
+=======
+2. Run the Docker container:
+>>>>>>> 9e6db0c (Update README.md)
 
 ```bash
 docker run -p 3000:3000 alialkindi/pokedex:latest
