@@ -3,6 +3,8 @@ import { Inter, Luckiest_Guy, Space_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const luckiest_guy = Luckiest_Guy({
   weight: "400",
@@ -32,6 +34,7 @@ export default function RootLayout({
     >
       <body className={inter.className}>
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
