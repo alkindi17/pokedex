@@ -40,16 +40,6 @@ git clone https://github.com/alkindi17/pokedex.git
 cd pokedex
 ```
 
-3. Create `.env.local` file at root directory, and edit to link to your Algolia account.  
-   Create your account at https://www.algolia.com.  
-   To use my algolia account for review purposes please contact me **contact@alialkindi.dev**
-
-```
-ALGOLIA_ADMIN_API_KEY = <Your Admin API Key>
-NEXT_PUBLIC_ALGOLIA_APPLICATION_ID = <Your Application ID>
-NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY = <Your Search API Key>
-```
-
 4. Install the dependencies.
 
 ```bash
