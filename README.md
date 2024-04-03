@@ -8,15 +8,15 @@ This is a React web application built with Next.js. It displays all Pokémon and
 
 ### Features:
 
-- [x] Stunning responsive UI. 💫
-- [x] Mobile Screen friendly. 📱
-- [x] Browse full list of pokémons seamlessly. 🌐
-- [x] View detailed pokemons details. ℹ️
-- [x] Search and filter pokemons. 🔍
-- [x] Add pokemons to favourites. ⭐
-- [x] Random pokemon getter. 🎲
-- [x] See your recently viewed pokemons. 🔄
-- [x] Secure Login with Google Authentication. 🔑
+- Stunning responsive UI.
+- Mobile Screen friendly.
+- Browse full list of pokémons seamlessly.
+- View detailed pokemons details.
+- Search and filter pokemons.
+- Add pokemons to favourites.
+- Random pokemon getter.
+- See your recently viewed pokemons.
+- Secure Login with Google Authentication.
 
 ### Major Libraries Used:
 
