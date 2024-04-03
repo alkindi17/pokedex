@@ -16,11 +16,11 @@ export function useHitsContext() {
 
 export type RoutesContext = {
   currentRoute: string;
-  setCurrentRoute: (tab: string) => void;
+  setCurrentRoute: (menu: string) => void;
 };
 
 export const routeProvider = createContext<RoutesContext>({
-  currentRoute: "tabs",
+  currentRoute: "menu",
   setCurrentRoute: () => {},
 });
 
@@ -28,16 +28,16 @@ export function useRoutesContext() {
   return useContext(routeProvider);
 }
 
-export type TabsContext = {
-  currentTab: string;
-  setCurrentTab: (tab: string) => void;
+export type MenuContext = {
+  currentMenu: string;
+  setCurrentMenu: (menu: string) => void;
 };
 
-export const tabsProvider = createContext<TabsContext>({
-  currentTab: "home",
-  setCurrentTab: () => {},
+export const MenuProvider = createContext<MenuContext>({
+  currentMenu: "home",
+  setCurrentMenu: () => {},
 });
 
-export function useTabsContext() {
-  return useContext(tabsProvider);
+export function useMenuContext() {
+  return useContext(MenuProvider);
 }

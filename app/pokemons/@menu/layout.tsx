@@ -7,7 +7,7 @@ import { LoadingDots } from "@/components/ui/loading";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { showHitsProvider, useTabsContext } from "@/lib/contexts";
+import { showHitsProvider, useMenuContext } from "@/lib/contexts";
 import Profile from "@/components/ui/profile";
 import CustomRefinementList from "@/components/algolia/CustomRefinementList";
 
@@ -16,13 +16,13 @@ const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string,
 );
 
-export default function TabsLayout({
+export default function MenuLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const [showHits, setShowHits] = useState(false);
-  const { currentTab } = useTabsContext();
+  const { currentMenu: currentMenu } = useMenuContext();
 
   return (
     <div className=" overflow-clip">
@@ -36,8 +36,8 @@ export default function TabsLayout({
         <InstantSearch indexName="pokedex" searchClient={searchClient}>
           <div className="sticky top-0 z-10 h-36 pb-10 pt-4 gradient-mask-b-[rgba(0,0,0,1.0)_100px,rgba(0,0,0,0.8)_80%]">
             <div className="relative mx-4 my-2 flex items-center justify-between">
-              {((currentTab === "home" && showHits) ||
-                currentTab !== "home") && (
+              {((currentMenu === "home" && showHits) ||
+                currentMenu !== "home") && (
                 <Link
                   href="/pokemons/home"
                   onClick={() => setShowHits(false)}
@@ -59,7 +59,7 @@ export default function TabsLayout({
                 submitIconComponent={() => <></>}
                 queryHook={useCallback(
                   (query: string, search: Function) => {
-                    if (query.length > 0 && currentTab === "home") {
+                    if (query.length > 0 && currentMenu === "home") {
                       setShowHits(true);
                     } else {
                       setShowHits(false);
@@ -67,7 +67,7 @@ export default function TabsLayout({
                     search(query);
                   },
                   // eslint-disable-next-line react-hooks/exhaustive-deps
-                  [currentTab, showHits],
+                  [currentMenu, showHits],
                 )}
                 classNames={{
                   root: "flex justify-center flex-1",
@@ -83,7 +83,7 @@ export default function TabsLayout({
               <CustomRefinementList
                 attribute="types"
                 setShowHits={setShowHits}
-                currentTab={currentTab}
+                currentMenu={currentMenu}
               />
             </div>
             <div className="absolute top-0 -z-30 h-full w-full bg-white"></div>

@@ -12,10 +12,10 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 export default function CustomRefinementList({
   setShowHits,
-  currentTab,
+  currentMenu: currentTab,
   ...props
 }: UseRefinementListProps & { setShowHits: (show: boolean) => void } & {
-  currentTab: string;
+  currentMenu: string;
 }) {
   const { items, refine } = useRefinementList({
     ...props,

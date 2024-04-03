@@ -2,12 +2,12 @@
 
 import { useHitsContext } from "@/lib/contexts";
 import CustomInfiniteHits from "@/components/algolia/CustomInfiniteHits";
-import RecentPokemons from "@/components/tabs/recent-pokemons";
-import FavouritePokemons from "@/components/tabs/favourite-pokemons";
-import GenerateRandomPokemon from "@/components/tabs/random-pokemon";
-import ViewAll from "@/components/tabs/view-all";
+import RecentPokemons from "@/components/menu/recent-pokemons";
+import FavouritePokemons from "@/components/menu/favourite-pokemons";
+import GenerateRandomPokemon from "@/components/menu/random-pokemon";
+import ViewAll from "@/components/menu/view-all";
 
-export default function Tabs() {
+export default function Menu() {
   const { showHits } = useHitsContext();
   return (
     <>

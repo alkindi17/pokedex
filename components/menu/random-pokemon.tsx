@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { RandomPokemonCard } from "@/components/tabs/random-pokemon-card";
+import { RandomPokemonCard } from "@/components/menu/random-pokemon-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 

@@ -1,5 +1,5 @@
 "use client";
 
-export default function Tabs() {
+export default function Menu() {
   return <></>;
 }

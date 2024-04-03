@@ -1,7 +1,7 @@
 "use client";
 
 import CustomInfiniteHits from "@/components/algolia/CustomInfiniteHits";
-export default function Tabs() {
+export default function menu() {
   return (
     <>
       <CustomInfiniteHits />
