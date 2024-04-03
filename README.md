@@ -1,26 +1,27 @@
 # Pokédex
 
-Visit at: https://pokedex.alialkindi.dev
+🔗 Visit at: https://pokedex.alialkindi.dev
 
-This is a React application built with Next.js. It displays all Pokémon and their details, with the ability to search and filter the list of pokemons, and more.
+This is a React web application built with Next.js. It displays all Pokémon and their details, with the ability to search and filter the list of pokemons, and more.
 
 ## Project Overview
 
-#### Features:
+### Features:
 
-- Stunning responsive UI.
-- Mobile Screen friendly.
-- Browse full list of pokémons seamlessly.
-- View detailed pokemons details.
-- Search and filter pokemons.
-- Add pokemons to favourites.
-- Random pokemon getter.
-- View your recently viewed pokemons.
-- Secure Login with Google Authentication.
+- [x] Stunning responsive UI. 💫
+- [x] Mobile Screen friendly. 📱
+- [x] Browse full list of pokémons seamlessly. 🌐
+- [x] View detailed pokemons details. ℹ️
+- [x] Search and filter pokemons. 🔍
+- [x] Add pokemons to favourites. ⭐
+- [x] Random pokemon getter. 🎲
+- [x] See your recently viewed pokemons. 🔄
+- [x] Secure Login with Google Authentication. 🔑
 
-#### Major Libraries Used:
+### Major Libraries Used:
 
 - **Shadcn/UI** for UI components.
+- **Tailwind CSS** for rapid and efficient styling.
 - **Google Firebase** for secure user authentication and data storage.
 - **Algolia** for instant search functionality.
 
@@ -60,13 +61,13 @@ The application should be available at `http://localhost:3000`.
 
 To pull and run the Docker image of the project, follow these steps:
 
-1. Pull the Docker image from Docker Hub:
+1. Pull the Docker image from Docker Hub.
 
 ```bash
 docker pull alialkindi/pokedex:latest
 ```
 
-2. Run the Docker container:
+2. Run the Docker container.
 
 ```bash
 docker run -p 3000:3000 alialkindi/pokedex:latest
