@@ -2,7 +2,7 @@
 
 🔗 Visit at: https://pokedex.alialkindi.dev
 
-This is a React web application built with Next.js. It displays all Pokémon and their details, with the ability to search and filter the list of pokemons, and more.
+This is a React web application built with Next.js. It utilizes the PokeAPI to retrieve information about Pokémon. The application displays all Pokémon and their details, with the ability to search and filter the list of pokemons, and more.
 
 ## Project Overview
 
