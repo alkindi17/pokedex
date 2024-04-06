@@ -9,7 +9,7 @@ This is a React web application built with Next.js. It utilises the PokeAPI to r
 ### Features:
 
 - Stunning responsive UI.
-- Mobile Screen friendly.
+- Mobile screen friendly.
 - Browse full list of pokémons seamlessly.
 - View detailed pokemons details.
 - Search and filter pokemons.
